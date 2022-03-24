@@ -1,4 +1,4 @@
-const Details = (props) => {
+const RideCard = (props) => {
 
   return (
     <div className='details-summary' onClick={props.onClick}>
@@ -7,3 +7,4 @@ const Details = (props) => {
 
   )
 }
+export default RideCard
