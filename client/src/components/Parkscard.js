@@ -6,7 +6,7 @@ const ParksCard = (props) => {
       </div>
       <div className='parkcards-info'>
         <h3>{props.name}</h3>
-        <p>{props.gameCount}</p>
+        <p>{props.rating}</p>
       </div>
 
     </div>
