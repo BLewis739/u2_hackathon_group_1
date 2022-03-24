@@ -16,7 +16,7 @@ const Home = () => {
   useEffect(() => {
     const getParks = async () => {
       const res = await axios.get(
-        `https://api.rawg.io/api/games?key=${API_KEY}&search=final`
+        `https://api.rawg.io/api/games?key=${API_KEY}&search=${searchQuery}`
       )
       setParks(res.data.results)
       console.log(res.data.results)
@@ -39,7 +39,7 @@ const Home = () => {
         />
       </div>
       <div className="trending">
-        {parks.map((park) => (
+        {parks.slice(0, 3).map((park, index) => (
           <Link to={`/park/details/${park.id}`}>
             <ParksCard image={park.background_image} {...park} />
           </Link>
@@ -48,7 +48,7 @@ const Home = () => {
       <div className="categories">
         <h2>Park Categories</h2>
         <section>
-          {parks.map((park) => (
+          {parks.slice(0, 3).map((park) => (
             <Link to={`/park/details/${park.id}`}>
               <ParksCard image={park.background_image} {...park} />
             </Link>
