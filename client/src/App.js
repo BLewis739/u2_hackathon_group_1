@@ -6,6 +6,7 @@ import Header from './components/Header'
 import ViewPark from './pages/ViewPark'
 import ViewRide from './components/Ridecard'
 import CreateRide from './components/CreateRide'
+import CreatePark from './components/CreatePark'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/park/details/:parkId" element={<ViewPark />} />
           <Route path="/view/rides/:rideId" element={<ViewRide />} />
           <Route path='/createride' element={<CreateRide />} />
+          <Route path='/createpark' element={<CreatePark />} />
         </Routes>
       </main>
     </div>

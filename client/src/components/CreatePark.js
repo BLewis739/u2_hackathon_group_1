@@ -1,16 +1,26 @@
-
-
-const CreateRide = (props) => {
-
+const CreatePark = (props) => {
   return (
-    
-<form onSubmit={props.onSubmit}>
+    <form onSubmit={props.onSubmit}>
   
       <input
         type="text"
-        name="Ride Name"
+        name="Park"
         value={props.value}
-        placeholder="Name"
+        placeholder="Park Name"
+        onChange={props.onChange}>
+      </input>
+      <input
+        type="text"
+        name="Location"
+        value={props.value}
+        placeholder="Location"
+        onChange={props.onChange}>
+      </input>
+      <input
+        type="text"
+        name="Category"
+        value={props.value}
+        placeholder="Category"
         onChange={props.onChange}>
       </input>
       <input
@@ -22,23 +32,15 @@ const CreateRide = (props) => {
       </input>
       <input
         type="text"
-        name="Ride Length"
+        name="Year Opened"
         value={props.value}
-        placeholder="Ride Length"
-        onChange={props.onChange}>
-      </input>
-      <input
-        type="text"
-        name="Year Built"
-        value={props.value}
-        placeholder="Year Built"
+        placeholder="Year Opened"
         onChange={props.onChange}>
       </input>
       <button className="submitButton" text="Submit">
-        Add Ride
+        Add Park
       </button>
-    </form>
+      </form>
   )
-
 }
-export default CreateRide
+export default CreatePark
