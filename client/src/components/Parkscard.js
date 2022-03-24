@@ -6,7 +6,7 @@ const ParksCard = (props) => {
         <p>{props.rating}</p>
       </div>
       <div className="img-wrapper">
-        <img src={props.background_image}></img>
+        <img src={props.img}></img>
       </div>
     </div>
   )

@@ -14,7 +14,7 @@ const ViewPark = (props) => {
     let isCancelled = false
     const getParkDetails = async () => {
       const response = await axios.get(
-        `https://api.rawg.io/api/games/${parkId}?key=${API_KEY}`
+        `http://localhost:3001/parks/623ccb99cb40ad9c3eadc8be`
       )
       if (!isCancelled) {
         setParkDetails(response.data)
@@ -32,7 +32,7 @@ const ViewPark = (props) => {
   return (
     <div park-content>
       <div className="parkImage">
-        <img src={parkDetail.background_image} alt="image"></img>
+        <img src={parkDetail.img} alt="image"></img>
       </div>
       <div>
         <h1>{parkDetail.name}</h1>
