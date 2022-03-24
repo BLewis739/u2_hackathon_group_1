@@ -17,10 +17,10 @@
 
 ## ERD Layout
 
-![](ERD.png)
+![Imgur](https://i.imgur.com/Facn98S.png)
 
 ## Front-end Mockup
 
-![](Sketch.png)
+![Imgur](https://i.imgur.com/GPVHEOF.png)
 
 ## Credits
