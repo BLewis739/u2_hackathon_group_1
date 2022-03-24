@@ -3,10 +3,8 @@ import waterPark from '../thrills & spills imgs/waterpark/waterPark.jpg'
 const ParksCard = (props) => {
   return (
     <div className="parkcards" onClick={props.onClick}>
-      <p></p>
       <div className="img-wrapper">
-        <title></title>
-        <img src={waterPark}></img>
+        <img src={props.background_image}></img>
       </div>
       <div className="parkcards-info">
         <h3>{props.name}</h3>

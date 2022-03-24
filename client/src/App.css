@@ -1,3 +1,7 @@
+body {
+  width: 100vw;
+}
+
 .App {
   text-align: center;
 }
@@ -30,7 +34,7 @@ button {
 
 .trending {
   display: flex;
-
+  flex-wrap: wrap;
   justify-content: center;
   column-gap: 20px;
 }
@@ -46,4 +50,12 @@ button {
   display: flex;
   justify-content: center;
   column-gap: 20px;
+}
+
+/****************************/
+/************ParkCard****************/
+/****************************/
+
+.parkcards {
+  background-color: #4c5760;
 }
