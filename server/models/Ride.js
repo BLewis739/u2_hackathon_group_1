@@ -7,7 +7,8 @@ const Ride = new Schema(
     maxCapacity: { type: Number, required: true },
     yearBuilt: { type: Number, required: true },
     rideLength: { type: Number, required: true },
-    park: { type: String, required: true }
+    park: { type: String, required: true },
+    img: { type: String, required: true }
   },
   { timestamps: true }
 )
