@@ -1,5 +1,3 @@
-import waterPark from '../thrills & spills imgs/waterpark/waterPark.jpg'
-
 const ParksCard = (props) => {
   return (
     <div className="parkcards" onClick={props.onClick}>

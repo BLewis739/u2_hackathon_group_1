@@ -20,8 +20,8 @@ function App() {
           <Route path="/About" element={<About />} />
           <Route path="/park/details/:parkId" element={<ViewPark />} />
           <Route path="/view/rides/:rideId" element={<ViewRide />} />
-          <Route path='/createride' element={<CreateRide />} />
-          <Route path='/createpark' element={<CreatePark />} />
+          <Route path="/createride" element={<CreateRide />} />
+          <Route path="/createpark" element={<CreatePark />} />
         </Routes>
       </main>
     </div>

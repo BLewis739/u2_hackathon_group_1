@@ -7,7 +7,8 @@ const Park = new Schema(
     rides: [{ type: Schema.Types.ObjectId, ref: 'rides' }],
     location: { type: String, required: true },
     yearOpened: { type: Number, required: true },
-    category: { type: String, required: true }
+    category: { type: String, required: true },
+    img: { type: String, required: true }
   },
   { timestamps: true }
 )
