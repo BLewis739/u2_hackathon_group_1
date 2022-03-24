@@ -1,5 +1,6 @@
 import React from 'react'
 import ParksCard from '../components/Parkscard'
+import RideCard from '../components/Ridecard'
 
 const Home = () => {
   return (
@@ -17,9 +18,9 @@ const Home = () => {
         </form>
       </div>
       <div className="trending">
-        <ParksCard />
-        <ParksCard />
-        <ParksCard />
+        <RideCard />
+        <RideCard />
+        <RideCard />
       </div>
       <div className="categories">
         <h2>Park Categories</h2>

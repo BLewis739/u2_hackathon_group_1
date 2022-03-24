@@ -8,13 +8,31 @@
 nav {
   display: flex;
   justify-content: flex-end;
-  /* justify-content: space-between; */
+  column-gap: 50px;
+}
+
+/****************************/
+/************Search****************/
+/****************************/
+
+input {
+  width: 40%;
+  margin: 20px 0 50px 0;
+  color: red;
+  font-size: 20px;
+}
+
+button {
+  margin-left: 20px;
+
+  font-size: 20px;
 }
 
 .trending {
   display: flex;
 
   justify-content: center;
+  column-gap: 20px;
 }
 
 .img-wrapper {
@@ -27,4 +45,5 @@ nav {
 .categories section {
   display: flex;
   justify-content: center;
+  column-gap: 20px;
 }
