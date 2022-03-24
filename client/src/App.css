@@ -11,6 +11,7 @@ body {
 
 .App {
   text-align: center;
+  height: 100vh;
 }
 
 /****************************/
@@ -64,7 +65,7 @@ button {
   /* border: 1px black solid; */
   border-radius: 30px;
   box-shadow: 0 0 20px gray;
-  margin: 0 auto 75px;
+  margin: 0 auto 40px;
 }
 
 .img-wrapper {
@@ -111,4 +112,37 @@ button {
 
 .parkcards p {
   margin: 0;
+}
+
+/****************************/
+/************CreateRide****************/
+/****************************/
+
+.createRide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #4c5760;
+
+  height: 100%;
+  width: 50%;
+  margin: 200px auto;
+  opacity: 0.8;
+
+  border-radius: 50px;
+}
+
+.createRide input {
+  display: block;
+  width: 100%;
+  background-color: black;
+  opacity: 1;
+}
+
+input,
+select,
+textarea {
+  color: #ffffff;
 }
