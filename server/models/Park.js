@@ -12,4 +12,4 @@ const Park = new Schema(
   { timestamps: true }
 )
 
-module.exports = mongoose.model('parks', Park)
+module.exports = Park

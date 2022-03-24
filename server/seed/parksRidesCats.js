@@ -136,24 +136,22 @@ const main = async () => {
   })
   park6.save()
 
-  const category1 = await new Category({
-    name: 'Amusement',
-    parks: [park1._id, park6._id]
-  })
-  category1.save()
+  const categories = [
+    {
+      name: 'Amusement',
+      parks: [park1._id, park6._id]
+    },
+    {
+      name: 'Water',
+      parks: [park3._id, park4._id]
+    },
+    {
+      name: 'Kids',
+      parks: [park2._id, park3._id]
+    }
+  ]
 
-  const category2 = await new Category({
-    name: 'Water',
-    parks: [park3._id, park4._id]
-  })
-  category2.save()
-
-  const category3 = await new Category({
-    name: 'Kids',
-    parks: [park2._id, park5._id]
-  })
-  category3.save()
-
+  await Category.insertMany(categories)
   console.log('Created Rides, Parks, and Categories/Themes!')
 }
 
