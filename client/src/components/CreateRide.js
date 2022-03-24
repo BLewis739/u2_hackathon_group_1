@@ -32,7 +32,7 @@ const CreateRide = (props) => {
           onChange={props.onChange}
         ></input>
         <button className="submitButton" text="Submit">
-          Add
+          Add Ride
         </button>
       </form>
     </div>
