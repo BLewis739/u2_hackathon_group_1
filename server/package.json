@@ -1,0 +1,23 @@
+{
+  "name": "u2_hackathon_group_1",
+  "version": "1.0.0",
+  "description": "## Date: 03/23/2022",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BLewis739/u2_hackathon_group_1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BLewis739/u2_hackathon_group_1/issues"
+  },
+  "homepage": "https://github.com/BLewis739/u2_hackathon_group_1#readme",
+  "dependencies": {
+    "mongoose": "^6.2.8"
+  }
+}
