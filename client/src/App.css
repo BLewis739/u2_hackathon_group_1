@@ -2,6 +2,15 @@
   text-align: center;
 }
 
+/****************************/
+/************Header****************/
+/****************************/
+nav {
+  display: flex;
+  justify-content: flex-end;
+  /* justify-content: space-between; */
+}
+
 .trending {
   display: flex;
 
