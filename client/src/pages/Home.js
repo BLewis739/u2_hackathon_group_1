@@ -22,6 +22,10 @@ const Home = () => {
     getParks()
   }, [])
 
+  const getSearchResult = async (e) => {
+    e.preventDefault()
+  }
+
   const handleChange = (e) => {
     setSearchQuery(e.target.value)
   }
@@ -35,7 +39,7 @@ const Home = () => {
         <Search
           onChange={handleChange}
           value={searchQuery}
-          // onSubmit={getSearchResult}
+          onSubmit={getSearchResult}
         />
       </div>
       <div className="trending">
