@@ -1,4 +1,4 @@
-const Parks = (props) => {
+const ParksCard = (props) => {
   return (
     <div className='parkcards' onClick={props.onClick}>
       <div className='img-wrapper'>
@@ -16,4 +16,4 @@ const Parks = (props) => {
 
   )
 }
-export default GenreCard
+export default ParksCard
