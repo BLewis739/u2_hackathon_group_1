@@ -7,7 +7,7 @@ const Ride = new Schema(
     maxCapacity: { type: Number, required: true },
     yearBuilt: { type: Number, required: true },
     rideLength: { type: Number, required: true },
-    park: [{ type: Schema.Types.ObjectId, ref: 'parks' }]
+    park: { type: String, required: true }
   },
   { timestamps: true }
 )

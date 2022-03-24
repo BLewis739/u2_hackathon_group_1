@@ -4,10 +4,10 @@ const Park = new Schema(
   {
     name: { type: String, required: true },
     description: { type: String, required: true },
-    rides: { type: Array, required: true },
+    rides: [{ type: Schema.Types.ObjectId, ref: 'rides' }],
     location: { type: String, required: true },
     yearOpened: { type: Number, required: true },
-    category: [{ type: Schema.Types.ObjectId, ref: 'categories' }]
+    category: { type: String, required: true }
   },
   { timestamps: true }
 )
