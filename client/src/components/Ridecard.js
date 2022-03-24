@@ -1,4 +1,4 @@
-import waterPark from '../thrills & spills imgs/waterpark/waterPark.jpg'
+import waterPark from '../thrills & spillsimgs/waterpark/waterPark.jpg'
 
 const RideCard = (props) => {
   return (
