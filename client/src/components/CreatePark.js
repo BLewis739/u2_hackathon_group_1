@@ -1,18 +1,21 @@
 import { useState } from 'react'
-import { axios } from 'axios'
+import axios from 'axios'
 
-const CreatePark = (props) => {
+const CreatePark = () => {
   const [addPark, setAddPark] = useState({
-    Park: '',
-    Location: '',
-    Category: '',
-    Description: '',
-    YearOpened: ''
+    name: '',
+    location: '',
+    category: '',
+    img: '',
+    description: '',
+    yearOpened: ''
   })
 
   console.log(addPark)
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
     axios
       .post('http://localhost:3001/parks', addPark)
       .then((res) => console.log('successful'))
@@ -26,40 +29,47 @@ const CreatePark = (props) => {
         <input
           type="text"
           name="Park"
-          value={addPark.Park}
+          value={addPark.name}
           placeholder="Park Name"
-          onChange={(e) => setAddPark({ ...addPark, Park: e.target.value })}
+          onChange={(e) => setAddPark({ ...addPark, name: e.target.value })}
         ></input>
         <input
           type="text"
           name="Location"
           value={addPark.Location}
           placeholder="Location"
-          onChange={(e) => setAddPark({ ...addPark, Location: e.target.value })}
+          onChange={(e) => setAddPark({ ...addPark, location: e.target.value })}
+        ></input>
+        <input
+          type="text"
+          name="Image"
+          value={addPark.img}
+          placeholder="img url"
+          onChange={(e) => setAddPark({ ...addPark, img: e.target.value })}
         ></input>
         <input
           type="text"
           name="Category"
-          value={addPark.Category}
+          value={addPark.category}
           placeholder="Category"
-          onChange={(e) => setAddPark({ ...addPark, Category: e.target.value })}
+          onChange={(e) => setAddPark({ ...addPark, category: e.target.value })}
         ></input>
         <input
           type="text"
           name="Description"
-          value={addPark.Description}
+          value={addPark.description}
           placeholder="Description"
           onChange={(e) =>
-            setAddPark({ ...addPark, Description: e.target.value })
+            setAddPark({ ...addPark, description: e.target.value })
           }
         ></input>
         <input
           type="text"
           name="YearOpened"
-          value={addPark.YearOpened}
+          value={addPark.yearOpened}
           placeholder="Year Opened"
           onChange={(e) =>
-            setAddPark({ ...addPark, YearOpened: e.target.value })
+            setAddPark({ ...addPark, yearOpened: e.target.value })
           }
         ></input>
         <button className="submitButton" text="Submit">

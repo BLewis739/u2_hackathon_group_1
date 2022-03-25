@@ -25,7 +25,7 @@ const Home = () => {
     e.preventDefault()
     const res = await axios.get(`http://localhost:3001/parks/`)
     const searchedParks = res.data.filter((item) => {
-      return item.name.includes(`${searchQuery}`)
+      return item.name.toLowerCase().includes(`${searchQuery}`)
     })
     setSearchQuery('')
     setSearched(true)
@@ -33,7 +33,7 @@ const Home = () => {
   }
 
   const handleChange = (e) => {
-    setSearchQuery(e.target.value)
+    setSearchQuery(e.target.value.toLowerCase())
     console.log(e.target.value)
   }
 

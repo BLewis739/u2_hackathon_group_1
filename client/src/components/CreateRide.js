@@ -1,20 +1,21 @@
 import { useState } from 'react'
-import { axios } from 'axios'
+import axios from 'axios'
 
 const CreateRide = (props) => {
   const [addRide, setaddRide] = useState({
-    Name: '',
-    Description: '',
-    RideLength: '',
-    YearBuilt: 0
+    name: '',
+    description: '',
+    maxCapacity: '',
+    yearBuilt: '',
+    rideLength: '',
+    park: '',
+    img: ''
   })
 
-  const handleSubmit = () => {
-    // e.preventDefault()
-    let ride = JSON.stringify(addRide)
-    console.log(ride)
+  const handleSubmit = (e) => {
+    e.preventDefault()
     axios
-      .post('http://localhost:3001/rides', ride)
+      .post('http://localhost:3001/rides', addRide)
       .then((res) => console.log('successful'))
       .catch((err) => console.log(err.data))
   }
@@ -28,36 +29,59 @@ const CreateRide = (props) => {
         <input
           type="text"
           name="Ride"
-          value={addRide.Name}
+          value={addRide.name}
           placeholder="Name"
-          onChange={(e) => setaddRide({ ...addRide, Name: e.target.value })}
+          onChange={(e) => setaddRide({ ...addRide, name: e.target.value })}
         ></input>
         <input
           type="text"
           name="Description"
-          value={addRide.Description}
+          value={addRide.description}
           placeholder="Description"
           onChange={(e) =>
-            setaddRide({ ...addRide, Description: e.target.value })
+            setaddRide({ ...addRide, description: e.target.value })
           }
         ></input>
         <input
           type="text"
-          name="Ride Length"
-          value={addRide.RideLength}
-          placeholder="Ride Length"
+          name="Ride"
+          value={addRide.maxCapacity}
+          placeholder="Max Capacity"
           onChange={(e) =>
-            setaddRide({ ...addRide, RideLength: e.target.value })
+            setaddRide({ ...addRide, maxCapacity: e.target.value })
           }
         ></input>
         <input
           type="String"
           name="Year Built"
-          value={addRide.YearBuilt}
+          value={addRide.yearBuilt}
           placeholder="Year Built"
           onChange={(e) =>
-            setaddRide({ ...addRide, YearBuilt: e.target.value })
+            setaddRide({ ...addRide, yearBuilt: e.target.value })
           }
+        ></input>
+        <input
+          type="text"
+          name="Ride Length"
+          value={addRide.rideLength}
+          placeholder="Ride Length"
+          onChange={(e) =>
+            setaddRide({ ...addRide, rideLength: e.target.value })
+          }
+        ></input>
+        <input
+          type="text"
+          name="Ride"
+          value={addRide.park}
+          placeholder="Park"
+          onChange={(e) => setaddRide({ ...addRide, park: e.target.value })}
+        ></input>
+        <input
+          type="text"
+          name="Ride"
+          value={addRide.img}
+          placeholder="Image URL"
+          onChange={(e) => setaddRide({ ...addRide, img: e.target.value })}
         ></input>
         <button className="submitButton" text="Submit">
           Add Ride
