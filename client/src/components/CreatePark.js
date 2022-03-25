@@ -25,6 +25,19 @@ const CreatePark = () => {
     navigate('/')
   }
 
+  const disableBtn = () => {
+    if (
+      !addPark.name &
+      !addPark.location &
+      !addPark.category &
+      !addPark.description &
+      !addPark.img &
+      !addPark.yearOpened
+    ) {
+      return true
+    }
+  }
+
   return (
     <div className="addPark">
       <h1>Add Park</h1>
@@ -33,11 +46,13 @@ const CreatePark = () => {
           type="text"
           name="Park"
           value={addPark.name}
+          required
           placeholder="Park Name"
           onChange={(e) => setAddPark({ ...addPark, name: e.target.value })}
         ></input>
         <input
           type="text"
+          required
           name="Location"
           value={addPark.Location}
           placeholder="Location"
@@ -45,20 +60,15 @@ const CreatePark = () => {
         ></input>
         <input
           type="text"
+          required
           name="Image"
           value={addPark.img}
           placeholder="img url"
           onChange={(e) => setAddPark({ ...addPark, img: e.target.value })}
         ></input>
-        {/* <input
-          type="text"
-          name="Category"
-          value={addPark.category}
-          placeholder="Category"
-          onChange={(e) => setAddPark({ ...addPark, category: e.target.value })}
-        ></input> */}
         <input
           type="text"
+          required
           name="Description"
           value={addPark.description}
           placeholder="Description"
@@ -68,6 +78,7 @@ const CreatePark = () => {
         ></input>
         <input
           type="number"
+          required
           min="1950"
           max="2022"
           name="YearOpened"
@@ -79,6 +90,7 @@ const CreatePark = () => {
         ></input>
         <select
           id="catergory"
+          required
           name="catergory"
           value={addPark.category}
           onChange={(e) => setAddPark({ ...addPark, category: e.target.value })}
@@ -90,7 +102,7 @@ const CreatePark = () => {
           <option value="Water">Water</option>
           <option value="Amusement">Amusement</option>
         </select>
-        <button className="submitButton" text="Submit">
+        <button className="submitButton" disabled={disableBtn} text="Submit">
           Add Park
         </button>
       </form>

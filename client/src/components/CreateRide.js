@@ -22,7 +22,19 @@ const CreateRide = (props) => {
     navigate('/')
   }
 
-  console.log(addRide)
+  const disableBtn = () => {
+    if (
+      !addRide.name &
+      !addRide.description &
+      !addRide.maxCapacity &
+      !addRide.yearBuilt &
+      !addRide.rideLength &
+      !addRide.park &
+      !addRide.img
+    ) {
+      return true
+    }
+  }
 
   return (
     <div className="createRide">
@@ -34,18 +46,21 @@ const CreateRide = (props) => {
           value={addRide.name}
           placeholder="Name"
           onChange={(e) => setaddRide({ ...addRide, name: e.target.value })}
+          required
         ></input>
         <input
           type="text"
           name="Description"
           value={addRide.description}
           placeholder="Description"
+          required
           onChange={(e) =>
             setaddRide({ ...addRide, description: e.target.value })
           }
         ></input>
         <input
           type="number"
+          required
           name="Ride"
           value={addRide.maxCapacity}
           placeholder="Max Capacity"
@@ -55,6 +70,7 @@ const CreateRide = (props) => {
         ></input>
         <input
           type="number"
+          required
           min="1950"
           max="2022"
           name="Year Built"
@@ -66,6 +82,7 @@ const CreateRide = (props) => {
         ></input>
         <input
           type="number"
+          required
           name="Ride Length"
           value={addRide.rideLength}
           placeholder="Ride Length"
@@ -75,6 +92,7 @@ const CreateRide = (props) => {
         ></input>
         <input
           type="text"
+          required
           name="Ride"
           value={addRide.park}
           placeholder="Park"
@@ -82,12 +100,13 @@ const CreateRide = (props) => {
         ></input>
         <input
           type="text"
+          required
           name="Ride"
           value={addRide.img}
           placeholder="Image URL"
           onChange={(e) => setaddRide({ ...addRide, img: e.target.value })}
         ></input>
-        <button className="submitButton" text="Submit">
+        <button className="submitButton" disabled={disableBtn} text="Submit">
           Add Ride
         </button>
       </form>
