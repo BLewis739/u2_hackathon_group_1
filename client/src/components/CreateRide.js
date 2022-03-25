@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const CreateRide = (props) => {
   const [addRide, setaddRide] = useState({
@@ -11,13 +12,14 @@ const CreateRide = (props) => {
     park: '',
     img: ''
   })
-
+  let navigate = useNavigate()
   const handleSubmit = (e) => {
     e.preventDefault()
     axios
       .post('http://localhost:3001/rides', addRide)
       .then((res) => console.log('successful'))
       .catch((err) => console.log(err.data))
+    navigate('/')
   }
 
   console.log(addRide)
