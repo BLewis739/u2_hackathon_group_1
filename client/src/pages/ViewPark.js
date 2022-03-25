@@ -33,30 +33,41 @@ const ViewPark = (props) => {
     }
   })
 
-  console.log(parkRides)
-
-  console.log(rides)
-  console.log(parkDetail)
-  // console.log(parkDetail.rides)
+  let color
+  switch (parkDetail.category) {
+    case 'Kids':
+      color = 'purple'
+      break
+    case 'Amusement':
+      color = 'green'
+      break
+    case 'Water':
+      color = 'blue'
+      break
+  }
 
   return (
     <div park-content>
-      <div className="parkImage">
-        <img src={parkDetail.img} alt="image"></img>
-      </div>
-      <div className="discription">
-        <h1>{parkDetail.name}</h1>
-        <h3>Type: {parkDetail.category}</h3>
-        <p>{parkDetail.description}</p>
-        <p>Park Opened: {parkDetail.yearOpened}</p>
+      <div>
+        <div className="parkImage">
+          <img src={parkDetail.img} alt="image"></img>
+          <div className="discription">
+            <h3 style={{ backgroundColor: color }}>{parkDetail.category}</h3>
+            <h1>{parkDetail.name}</h1>
+            <p>{parkDetail.description}</p>
+            <p className="parkopened">Park Opened: {parkDetail.yearOpened}</p>
+          </div>
+        </div>
       </div>
       <div className="parkRides">
-        <h1>Rides:</h1>
-        {parkRides.map((ride) => (
-          <Link to={`/rides/${ride._id}`} key={ride._id}>
-            <RideCard img={ride.img} {...ride} />
-          </Link>
-        ))}
+        <h1>Rides</h1>
+        <div className="rides">
+          {parkRides.map((ride) => (
+            <Link className="rideLink" to={`/rides/${ride._id}`} key={ride._id}>
+              <RideCard img={ride.img} {...ride} />
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   )

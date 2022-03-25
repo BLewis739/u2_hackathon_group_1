@@ -6,7 +6,7 @@ const Search = (props) => {
         type="text"
         name="search"
         value={props.value}
-        placeholder="Search Rides"
+        placeholder="Search Park"
         onChange={props.onChange}
       ></input>
       <button className="submitButton" text="Submit">
