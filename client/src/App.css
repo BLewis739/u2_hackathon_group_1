@@ -3,10 +3,20 @@ body {
   background-color: #4c5760;
   margin: 0;
   padding: 0;
-  background-image: url(./thrills\ &\ spills\ imgs/bg.jpg);
+  background-color: #ffcccc;
   background-size: cover;
   background-position: 10%;
   background-repeat: no-repeat;
+}
+
+.navBar {
+  color: black;
+  text-decoration: none;
+}
+
+.navBar:hover {
+  text-decoration: underline;
+  background-color: #ffaaaa;
 }
 
 .App {
@@ -21,6 +31,9 @@ nav {
   display: flex;
   justify-content: flex-end;
   column-gap: 50px;
+  padding-top: 5px;
+  padding-right: 20px;
+  background-color: #ff8888;
 }
 
 /****************************/
@@ -66,9 +79,6 @@ button {
   border-radius: 30px;
   box-shadow: 0 0 20px gray;
   margin: 0 auto 40px;
-}
-
-.img-wrapper {
 }
 
 .img-wrapper img {
