@@ -45,7 +45,7 @@ const CreateRide = (props) => {
           }
         ></input>
         <input
-          type="text"
+          type="number"
           name="Ride"
           value={addRide.maxCapacity}
           placeholder="Max Capacity"
@@ -54,7 +54,9 @@ const CreateRide = (props) => {
           }
         ></input>
         <input
-          type="String"
+          type="number"
+          min="1950"
+          max="2022"
           name="Year Built"
           value={addRide.yearBuilt}
           placeholder="Year Built"
@@ -63,7 +65,7 @@ const CreateRide = (props) => {
           }
         ></input>
         <input
-          type="text"
+          type="number"
           name="Ride Length"
           value={addRide.rideLength}
           placeholder="Ride Length"
