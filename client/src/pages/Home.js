@@ -59,7 +59,7 @@ const Home = () => {
               </Link>
             ))}
           {searched && (
-            <Link to={`/park/${searchResult._id}`}>
+            <Link to={`/parks/${searchResult._id}`}>
               <ParksCard {...searchResult} />
             </Link>
           )}
