@@ -10,8 +10,11 @@ const CreateRide = (props) => {
   })
 
   const handleSubmit = () => {
+    // e.preventDefault()
+    let ride = JSON.stringify(addRide)
+    console.log(ride)
     axios
-      .post('', addRide)
+      .post('http://localhost:3001/rides', ride)
       .then((res) => console.log('successful'))
       .catch((err) => console.log(err.data))
   }
