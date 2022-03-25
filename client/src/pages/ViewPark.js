@@ -54,6 +54,7 @@ const ViewPark = (props) => {
           <div className="discription">
             <h3 style={{ backgroundColor: color }}>{parkDetail.category}</h3>
             <h1>{parkDetail.name}</h1>
+            <p>{parkDetail.location}</p>
             <p>{parkDetail.description}</p>
             <p className="parkopened">Park Opened: {parkDetail.yearOpened}</p>
           </div>
