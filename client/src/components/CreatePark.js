@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { axios } from 'axios'
 
 const CreatePark = (props) => {
   const [addPark, setAddPark] = useState({
@@ -11,10 +12,17 @@ const CreatePark = (props) => {
 
   console.log(addPark)
 
+  const handleSubmit = () => {
+    axios
+      .post('http://localhost:3001/parks', addPark)
+      .then((res) => console.log('successful'))
+      .catch((err) => console.log(err.data))
+  }
+
   return (
     <div className="addPark">
       <h1>Add Park</h1>
-      <form onSubmit={props.onSubmit}>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="Park"
