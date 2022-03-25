@@ -1,9 +1,9 @@
 body {
   width: 100vw;
-  background-color: #4c5760;
+  background-color: white;
   margin: 0;
   padding: 0;
-  background-image: url(./thrills\ &\ spills\ imgs/bg.jpg);
+
   background-size: cover;
   background-position: 10%;
   background-repeat: no-repeat;
@@ -19,22 +19,43 @@ body {
 /****************************/
 nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   column-gap: 50px;
+  padding: 25px 0;
+  /* border-bottom: 3px solid black; */
+}
+
+.headLink {
+  text-decoration: none;
+  color: black;
+}
+
+.headLink:hover {
+  color: blue;
+  font-weight: 700;
 }
 
 /****************************/
 /************Search****************/
 /****************************/
 
+.search {
+  background-image: url(./thrills\ &\ spills\ imgs/bg.jpg);
+  background-size: cover;
+  background-position: 100%;
+
+  padding: 50px;
+}
+
 input {
   width: 40%;
   margin: 20px 0 50px 0;
   font-size: 20px;
 
-  box-shadow: 0 0 10px white;
-  border: none;
+  /* box-shadow: 0 0 10px white;
+  border: none;*/
   border-radius: 50px;
+  padding: 10px;
 }
 
 .mainSearchBar {
@@ -51,24 +72,32 @@ button {
   font-size: 20px;
   border-radius: 50px;
   cursor: pointer;
+  padding: 10px;
+}
+
+button:hover {
+  color: blue;
+  font-weight: 700;
 }
 
 /****************************/
 /************display****************/
 /****************************/
+
+.content {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.content h1 {
+  text-align: left;
+  margin: 50px 0 40px;
+  font-weight: 400;
+}
+
 .trending {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
-  column-gap: 20px;
-
-  width: 80%;
-  height: 350px;
-  /* border: 1px black solid; */
-  border-radius: 30px;
-  box-shadow: 0 0 20px gray;
-  margin: 0 auto 40px;
+  justify-content: space-between;
 }
 
 .img-wrapper {
@@ -89,20 +118,32 @@ button {
 /****************************/
 
 .parkcards {
-  border-radius: 20px;
-  box-shadow: 0 0 20px black;
-  /* background-color: #66635b; */
-  width: 250px;
-  height: 250px;
-  opacity: 1;
+  width: 300px;
 }
 
 .parkcards img {
-  /* border-radius: 20px; */
-  margin: 10px 0;
-  /*padding: 0; */
   width: 100%;
   height: 200px;
+}
+
+.parkcards-info {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.parkcards-info h3 {
+  color: black;
+}
+
+.parkcards-info p {
+  border-radius: 50px;
+  padding: 5px 10px;
+  color: white;
+}
+
+.viewPage {
+  text-decoration: none;
 }
 
 .parkcards:hover {

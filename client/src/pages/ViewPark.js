@@ -1,33 +1,43 @@
 import React from 'react'
 import ParksCard from '../components/Parkscard'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import RideCard from '../components/Ridecard'
 
 const ViewPark = (props) => {
-  const { parkId } = useParams()
-  const API_KEY = 'cfdd70687f62478bb0de89b755a57503'
-
+  let { id } = useParams()
   const [parkDetail, setParkDetails] = useState({})
+  const [rides, setRides] = useState([])
 
   useEffect(() => {
-    let isCancelled = false
     const getParkDetails = async () => {
-      const response = await axios.get(
-        `http://localhost:3001/parks/623ccb99cb40ad9c3eadc8be`
-      )
-      if (!isCancelled) {
-        setParkDetails(response.data)
-      }
+      const res = await axios.get(`http://localhost:3001/parks/${id}`)
+
+      setParkDetails(res.data)
     }
     getParkDetails()
+  }, [id])
 
-    return () => {
-      isCancelled = true
+  useEffect(() => {
+    const getRide = async () => {
+      const res = await axios.get(`http://localhost:3001/rides`)
+      setRides(res.data)
     }
-  }, [parkId])
+    getRide()
+  }, [parkDetail])
 
+  const parkRides = rides.filter((ride) => {
+    if (ride.park === parkDetail.name) {
+      return ride
+    }
+  })
+
+  console.log(parkRides)
+
+  console.log(rides)
   console.log(parkDetail)
+  // console.log(parkDetail.rides)
 
   return (
     <div park-content>
@@ -40,7 +50,14 @@ const ViewPark = (props) => {
         <p>{parkDetail.description}</p>
         <p>Park Opened: {parkDetail.yearOpened}</p>
       </div>
-      <div className="parkRides"></div>
+      <div className="parkRides">
+        <h1>Rides:</h1>
+        {parkRides.map((ride) => (
+          <Link to={`/rides/${ride._id}`} key={ride._id}>
+            <RideCard img={ride.img} {...ride} />
+          </Link>
+        ))}
+      </div>
     </div>
   )
 }

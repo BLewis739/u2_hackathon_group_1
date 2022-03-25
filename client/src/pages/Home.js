@@ -7,8 +7,6 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 const Home = () => {
-  const API_KEY = 'cfdd70687f62478bb0de89b755a57503'
-
   const [parks, setParks] = useState([])
   const [searchResult, setSearchResult] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
@@ -37,48 +35,35 @@ const Home = () => {
     console.log(e.target.value)
   }
 
-  const render = () => {
-    if (!searched) {
-      parks.slice(0, 3).map((park, index) => (
-        <Link to={`/park/details/${park.id}`} key={park._id}>
-          <ParksCard image={park.img} {...park} />
-        </Link>
-      ))
-    } else {
-      {
-        searchResult.map((result) => (
-          <Link to={`/park/details/${result.id}`} key={result._id}>
-            <ParksCard image={result.img} />{' '}
-          </Link>
-        ))
-      }
-    }
-  }
-
-  console.log(parks)
-
   return (
     <div>
       <div className="search">
-        <h2> Search Result</h2>
         <Search
           onChange={handleChange}
           value={searchQuery}
           onSubmit={getSearchResult}
         />
       </div>
-      <div className="trending">
-        {!searched &&
-          parks.slice(0, 3).map((park, index) => (
-            <Link to={`/park/details/${park.id}`} key={park._id}>
-              <ParksCard image={park.img} {...park} />
+      <div className="content">
+        {!searched && <h1>Trending Park</h1>}
+        {searched && <h1>Search Result</h1>}
+        <div className="trending">
+          {!searched &&
+            parks.slice(0, 3).map((park, index) => (
+              <Link
+                className="viewPage"
+                to={`/parks/${park._id}`}
+                key={park._id}
+              >
+                <ParksCard image={park.img} {...park} />
+              </Link>
+            ))}
+          {searched && (
+            <Link to={`/park/${searchResult._id}`}>
+              <ParksCard {...searchResult} />
             </Link>
-          ))}
-        {searched && (
-          <Link to={`/park/details/${searchResult.id}`}>
-            <ParksCard {...searchResult} />
-          </Link>
-        )}
+          )}
+        </div>
       </div>
       {/* <div className="categories">
         <h2>Park Categories</h2>
