@@ -376,3 +376,28 @@ button:hover {
 /****************************/
 /************About****************/
 /****************************/
+
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80vh;
+}
+
+.about-content {
+  width: 60%;
+  text-align: left;
+  margin: 0 auto;
+}
+
+.about-content p {
+  line-height: 1.5em;
+}
+
+.gitLink a {
+  padding: 0 10px;
+}
+
+.gitLink a:not(:last-child) {
+  border-right: 2px solid black;
+}
