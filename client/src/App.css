@@ -192,14 +192,12 @@ button:hover {
   border-radius: 4px;
 }
 
-input,
-select,
-textarea {
-  color: #ffffff;
-}
-
 .createRide button {
   margin-bottom: 50px;
+  color: black;
+}
+
+.addPark input {
   color: black;
 }
 
@@ -234,6 +232,10 @@ textarea {
 
 .addPark button {
   margin: 0 0 50px;
+}
+
+.addPark input {
+  color: black;
 }
 
 /****************************/

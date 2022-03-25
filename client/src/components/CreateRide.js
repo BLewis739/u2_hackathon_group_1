@@ -1,35 +1,60 @@
+import { useState } from 'react'
+import { axios } from 'axios'
+
 const CreateRide = (props) => {
+  const [addRide, setaddRide] = useState({
+    Name: '',
+    Description: '',
+    RideLength: '',
+    YearBuilt: 0
+  })
+
+  const handleSubmit = () => {
+    axios
+      .post('', addRide)
+      .then((res) => console.log('successful'))
+      .catch((err) => console.log(err.data))
+  }
+
+  console.log(addRide)
+
   return (
     <div className="createRide">
       <h1>Add Your Ride</h1>
-      <form onSubmit={props.onSubmit}>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="Ride"
-          value={props.value}
+          value={addRide.Name}
           placeholder="Name"
-          onChange={props.onChange}
+          onChange={(e) => setaddRide({ ...addRide, Name: e.target.value })}
         ></input>
         <input
           type="text"
           name="Description"
-          value={props.value}
+          value={addRide.Description}
           placeholder="Description"
-          onChange={props.onChange}
+          onChange={(e) =>
+            setaddRide({ ...addRide, Description: e.target.value })
+          }
         ></input>
         <input
           type="text"
           name="Ride Length"
-          value={props.value}
+          value={addRide.RideLength}
           placeholder="Ride Length"
-          onChange={props.onChange}
+          onChange={(e) =>
+            setaddRide({ ...addRide, RideLength: e.target.value })
+          }
         ></input>
         <input
-          type="text"
+          type="String"
           name="Year Built"
-          value={props.value}
+          value={addRide.YearBuilt}
           placeholder="Year Built"
-          onChange={props.onChange}
+          onChange={(e) =>
+            setaddRide({ ...addRide, YearBuilt: e.target.value })
+          }
         ></input>
         <button className="submitButton" text="Submit">
           Add Ride
