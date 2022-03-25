@@ -3,10 +3,19 @@ body {
   background-color: white;
   margin: 0;
   padding: 0;
-
   background-size: cover;
   background-position: 10%;
   background-repeat: no-repeat;
+}
+
+.navBar {
+  color: black;
+  text-decoration: none;
+}
+
+.navBar:hover {
+  text-decoration: underline;
+  background-color: #ffaaaa;
 }
 
 .App {
@@ -100,9 +109,6 @@ button:hover {
 .trending {
   display: flex;
   justify-content: space-between;
-}
-
-.img-wrapper {
 }
 
 .img-wrapper img {
@@ -279,9 +285,6 @@ textarea {
   justify-content: start;
 }
 
-.rides a {
-}
-
 /****************************/
 /************RideCards****************/
 /****************************/
@@ -314,9 +317,6 @@ textarea {
 /****************************/
 /************ViewRide****************/
 /****************************/
-
-.viewCard {
-}
 
 .cardImg {
   width: 100%;

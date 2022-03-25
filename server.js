@@ -74,6 +74,30 @@ app.get('/categories/:id', async (req, res) => {
 
 // Post a new ride or park
 
+app.post('/parks', async (req, res) => {
+  try {
+    const park = await new Park(req.body)
+    await park.save()
+    return res.status(201).json({
+      park
+    })
+  } catch (error) {
+    return res.status(500).json({ error: error.message })
+  }
+})
+
+app.post('/rides', async (req, res) => {
+  try {
+    const ride = await new Ride(req.body)
+    await ride.save()
+    return res.status(201).json({
+      ride
+    })
+  } catch (error) {
+    return res.status(500).json({ error: error.message })
+  }
+})
+
 app.listen(PORT, () => {
   console.log(`Express server listening on port ${PORT}`)
 })
