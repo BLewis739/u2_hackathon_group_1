@@ -67,7 +67,9 @@ const CreatePark = () => {
           }
         ></input>
         <input
-          type="text"
+          type="number"
+          min="1950"
+          max="2022"
           name="YearOpened"
           value={addPark.yearOpened}
           placeholder="Year Opened"
