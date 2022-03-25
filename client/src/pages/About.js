@@ -6,6 +6,11 @@ const About = () => {
         in React & MongoDB to demonstrate an example of a theme park webpage. On our
         webpage we have 3 different parks with a variety of different rides. Feel free
         to browse around & add your favorite rides :)</p>
+        <p>Check us out on Github</p>
+        <a href='https://github.com/huan00'>huan00 |</a>
+        <a href='https://github.com/BLewis739'> BLewis739 |</a>
+        <a href='https://github.com/dventura221'> dventura221 |</a>
+        <a href='https://github.com/Bryvn1xx'> Bryvn1xx</a>
     </div>
 
 
