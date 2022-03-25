@@ -1,17 +1,27 @@
 import { useState } from 'react'
+import { axios } from 'axios'
 
 const CreateRide = (props) => {
   const [addRide, setaddRide] = useState({
     Name: '',
     Description: '',
     RideLength: '',
-    YearBuilt: ''
+    YearBuilt: 0
   })
+
+  const handleSubmit = () => {
+    axios
+      .post('', addRide)
+      .then((res) => console.log('successful'))
+      .catch((err) => console.log(err.data))
+  }
+
+  console.log(addRide)
 
   return (
     <div className="createRide">
       <h1>Add Your Ride</h1>
-      <form onSubmit={props.onSubmit}>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="Ride"
@@ -38,7 +48,7 @@ const CreateRide = (props) => {
           }
         ></input>
         <input
-          type="text"
+          type="String"
           name="Year Built"
           value={addRide.YearBuilt}
           placeholder="Year Built"
