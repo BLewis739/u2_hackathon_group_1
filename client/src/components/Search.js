@@ -2,6 +2,7 @@ const Search = (props) => {
   return (
     <form onSubmit={props.onSubmit}>
       <input
+        className="mainSearchBar"
         type="text"
         name="search"
         value={props.value}

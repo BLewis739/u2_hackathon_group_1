@@ -12,6 +12,7 @@ const Home = () => {
   const [parks, setParks] = useState([])
   const [searchResult, setSearchResult] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
+  const [searched, setSearched] = useState(false)
 
   useEffect(() => {
     const getParks = async () => {
@@ -24,10 +25,34 @@ const Home = () => {
 
   const getSearchResult = async (e) => {
     e.preventDefault()
+    const res = await axios.get(`http://localhost:3001/parks/${searchQuery}`)
+    setSearchResult(res.data)
+    setSearchQuery('')
+    setSearched(true)
+    console.log(res.data)
   }
 
   const handleChange = (e) => {
     setSearchQuery(e.target.value)
+    console.log(e.target.value)
+  }
+
+  const render = () => {
+    if (!searched) {
+      parks.slice(0, 3).map((park, index) => (
+        <Link to={`/park/details/${park.id}`} key={park._id}>
+          <ParksCard image={park.img} {...park} />
+        </Link>
+      ))
+    } else {
+      {
+        searchResult.map((result) => (
+          <Link to={`/park/details/${result.id}`} key={result._id}>
+            <ParksCard image={result.img} />{' '}
+          </Link>
+        ))
+      }
+    }
   }
 
   console.log(parks)
@@ -43,13 +68,19 @@ const Home = () => {
         />
       </div>
       <div className="trending">
-        {parks.slice(0, 3).map((park, index) => (
-          <Link to={`/park/details/${park.id}`} key={park._id}>
-            <ParksCard image={park.background_image} {...park} />
+        {!searched &&
+          parks.slice(0, 3).map((park, index) => (
+            <Link to={`/park/details/${park.id}`} key={park._id}>
+              <ParksCard image={park.img} {...park} />
+            </Link>
+          ))}
+        {searched && (
+          <Link to={`/park/details/${searchResult.id}`}>
+            <ParksCard {...searchResult} />
           </Link>
-        ))}
+        )}
       </div>
-      <div className="categories">
+      {/* <div className="categories">
         <h2>Park Categories</h2>
         <section>
           {parks.slice(0, 3).map((park) => (
@@ -58,7 +89,7 @@ const Home = () => {
             </Link>
           ))}
         </section>
-      </div>
+      </div> */}
     </div>
   )
 }

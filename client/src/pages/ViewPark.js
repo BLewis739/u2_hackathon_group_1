@@ -34,12 +34,13 @@ const ViewPark = (props) => {
       <div className="parkImage">
         <img src={parkDetail.img} alt="image"></img>
       </div>
-      <div>
-        <h1>{parkDetail.name}</h1>
-      </div>
       <div className="discription">
-        <p>{parkDetail.description_raw}</p>
+        <h1>{parkDetail.name}</h1>
+        <h3>Type: {parkDetail.category}</h3>
+        <p>{parkDetail.description}</p>
+        <p>Park Opened: {parkDetail.yearOpened}</p>
       </div>
+      <div className="parkRides"></div>
     </div>
   )
 }
