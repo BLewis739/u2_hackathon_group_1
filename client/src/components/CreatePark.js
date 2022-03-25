@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const CreatePark = () => {
   const [addPark, setAddPark] = useState({
@@ -12,7 +13,7 @@ const CreatePark = () => {
   })
 
   console.log(addPark)
-
+  let navigate = useNavigate()
   const handleSubmit = (e) => {
     e.preventDefault()
 
@@ -20,6 +21,8 @@ const CreatePark = () => {
       .post('http://localhost:3001/parks', addPark)
       .then((res) => console.log('successful'))
       .catch((err) => console.log(err.data))
+
+    navigate('/')
   }
 
   return (
@@ -47,13 +50,13 @@ const CreatePark = () => {
           placeholder="img url"
           onChange={(e) => setAddPark({ ...addPark, img: e.target.value })}
         ></input>
-        <input
+        {/* <input
           type="text"
           name="Category"
           value={addPark.category}
           placeholder="Category"
           onChange={(e) => setAddPark({ ...addPark, category: e.target.value })}
-        ></input>
+        ></input> */}
         <input
           type="text"
           name="Description"
@@ -72,6 +75,16 @@ const CreatePark = () => {
             setAddPark({ ...addPark, yearOpened: e.target.value })
           }
         ></input>
+        <select
+          id="catergory"
+          name="catergory"
+          value={addPark.category}
+          onChange={(e) => setAddPark({ ...addPark, category: e.target.value })}
+        >
+          <option value="Kids">Kids</option>
+          <option value="Water">Water</option>
+          <option value="Amusement">Amusement</option>
+        </select>
         <button className="submitButton" text="Submit">
           Add Park
         </button>
