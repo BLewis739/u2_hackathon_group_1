@@ -20,7 +20,6 @@ function App() {
           <Route path="About" element={<About />} />
           <Route path="parks/:id" element={<ViewPark />} />
           <Route path="rides/:id" element={<ViewRide />} />
-
           <Route path="createride" element={<CreateRide />} />
           <Route path="createpark" element={<CreatePark />} />
         </Routes>

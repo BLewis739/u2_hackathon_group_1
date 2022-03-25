@@ -4,15 +4,12 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 const ViewRide = (props) => {
-  let { id } = useParams
-  console.log(id)
+  let { id } = useParams()
   const [rideDetails, setRideDetails] = useState('')
 
   useEffect(() => {
     const getRideDetails = async () => {
-      const res = await axios.get(
-        `http://localhost:3001/rides/623ccb99cb40ad9c3eadc8b9`
-      )
+      const res = await axios.get(`http://localhost:3001/rides/${id}`)
 
       setRideDetails(res.data)
     }
