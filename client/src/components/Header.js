@@ -3,16 +3,16 @@ const Header = () => {
   return (
     <header>
       <nav>
-        <Link to="/" className="navBar">
+        <Link className="headLink" to="/">
           Home
         </Link>
-        <Link to="/About" className="navBar">
+        <Link className="headLink" to="/About">
           About Us
         </Link>
-        <Link to="/createride" className="navBar">
+        <Link className="headLink" to="/createride">
           Add Ride
         </Link>
-        <Link to="/createpark" className="navBar">
+        <Link className="headLink" to="/createpark">
           Add Park
         </Link>
       </nav>

@@ -1,44 +1,73 @@
 import React from 'react'
 import ParksCard from '../components/Parkscard'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import RideCard from '../components/Ridecard'
 
 const ViewPark = (props) => {
-  const { parkId } = useParams()
-  const API_KEY = 'cfdd70687f62478bb0de89b755a57503'
-
+  let { id } = useParams()
   const [parkDetail, setParkDetails] = useState({})
+  const [rides, setRides] = useState([])
 
   useEffect(() => {
-    let isCancelled = false
     const getParkDetails = async () => {
-      const response = await axios.get(
-        `http://localhost:3001/parks/623ccb99cb40ad9c3eadc8be`
-      )
-      if (!isCancelled) {
-        setParkDetails(response.data)
-      }
+      const res = await axios.get(`http://localhost:3001/parks/${id}`)
+
+      setParkDetails(res.data)
     }
     getParkDetails()
+  }, [id])
 
-    return () => {
-      isCancelled = true
+  useEffect(() => {
+    const getRide = async () => {
+      const res = await axios.get(`http://localhost:3001/rides`)
+      setRides(res.data)
     }
-  }, [parkId])
+    getRide()
+  }, [parkDetail])
 
-  console.log(parkDetail)
+  const parkRides = rides.filter((ride) => {
+    if (ride.park === parkDetail.name) {
+      return ride
+    }
+  })
+
+  let color
+  switch (parkDetail.category) {
+    case 'Kids':
+      color = 'purple'
+      break
+    case 'Amusement':
+      color = 'green'
+      break
+    case 'Water':
+      color = 'blue'
+      break
+  }
 
   return (
     <div park-content>
-      <div className="parkImage">
-        <img src={parkDetail.img} alt="image"></img>
-      </div>
       <div>
-        <h1>{parkDetail.name}</h1>
+        <div className="parkImage">
+          <img src={parkDetail.img} alt="image"></img>
+          <div className="discription">
+            <h3 style={{ backgroundColor: color }}>{parkDetail.category}</h3>
+            <h1>{parkDetail.name}</h1>
+            <p>{parkDetail.description}</p>
+            <p className="parkopened">Park Opened: {parkDetail.yearOpened}</p>
+          </div>
+        </div>
       </div>
-      <div className="discription">
-        <p>{parkDetail.description_raw}</p>
+      <div className="parkRides">
+        <h1>Rides</h1>
+        <div className="rides">
+          {parkRides.map((ride) => (
+            <Link className="rideLink" to={`/rides/${ride._id}`} key={ride._id}>
+              <RideCard img={ride.img} {...ride} />
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   )
