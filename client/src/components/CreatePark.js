@@ -12,7 +12,6 @@ const CreatePark = () => {
     yearOpened: ''
   })
 
-  console.log(addPark)
   let navigate = useNavigate()
   const handleSubmit = (e) => {
     e.preventDefault()

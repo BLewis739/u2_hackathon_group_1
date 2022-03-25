@@ -16,8 +16,6 @@ const ViewRide = (props) => {
     getRideDetails()
   }, [id])
 
-  console.log(rideDetails)
-
   return (
     <div>
       <div className="viewCard">
