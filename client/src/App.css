@@ -1,9 +1,9 @@
 body {
   width: 100vw;
-  background-color: #4c5760;
+  background-color: white;
   margin: 0;
   padding: 0;
-  background-image: url(./thrills\ &\ spills\ imgs/bg.jpg);
+
   background-size: cover;
   background-position: 10%;
   background-repeat: no-repeat;
@@ -19,23 +19,47 @@ body {
 /****************************/
 nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   column-gap: 50px;
+  padding: 25px 0;
+  /* border-bottom: 3px solid black; */
+}
+
+.headLink {
+  text-decoration: none;
+  color: black;
+}
+
+.headLink:hover {
+  color: blue;
+  font-weight: 700;
 }
 
 /****************************/
 /************Search****************/
 /****************************/
 
+.search {
+  background-image: url(./thrills\ &\ spills\ imgs/bg.jpg);
+  background-size: cover;
+  background-position: 100%;
+
+  padding: 50px;
+}
+
 input {
   width: 40%;
   margin: 20px 0 50px 0;
-  color: red;
   font-size: 20px;
 
-  box-shadow: 0 0 10px white;
-  border: none;
+  /* box-shadow: 0 0 10px white;
+  border: none;*/
   border-radius: 50px;
+  padding: 10px;
+}
+
+.mainSearchBar {
+  color: black;
 }
 
 input:hover {
@@ -48,24 +72,34 @@ button {
   font-size: 20px;
   border-radius: 50px;
   cursor: pointer;
+  padding: 10px;
+  background-color: rgb(177, 124, 124);
+  color: white;
+}
+
+button:hover {
+  color: blue;
+  font-weight: 700;
 }
 
 /****************************/
 /************display****************/
 /****************************/
+
+.content {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.content h1 {
+  text-align: left;
+  margin: 50px 0 40px;
+  font-weight: 400;
+}
+
 .trending {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
-  column-gap: 20px;
-
-  width: 80%;
-  height: 350px;
-  /* border: 1px black solid; */
-  border-radius: 30px;
-  box-shadow: 0 0 20px gray;
-  margin: 0 auto 40px;
+  justify-content: space-between;
 }
 
 .img-wrapper {
@@ -86,20 +120,32 @@ button {
 /****************************/
 
 .parkcards {
-  border-radius: 20px;
-  box-shadow: 0 0 20px black;
-  /* background-color: #66635b; */
-  width: 250px;
-  height: 250px;
-  opacity: 1;
+  width: 300px;
 }
 
 .parkcards img {
-  /* border-radius: 20px; */
-  margin: 10px 0;
-  /*padding: 0; */
   width: 100%;
   height: 200px;
+}
+
+.parkcards-info {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.parkcards-info h3 {
+  color: black;
+}
+
+.parkcards-info p {
+  border-radius: 50px;
+  padding: 5px 10px;
+  color: white;
+}
+
+.viewPage {
+  text-decoration: none;
 }
 
 .parkcards:hover {
@@ -115,7 +161,7 @@ button {
 }
 
 /****************************/
-/************CreateRide****************/
+/************AddRides****************/
 /****************************/
 
 .createRide {
@@ -124,25 +170,176 @@ button {
   justify-content: center;
   align-items: center;
 
-  background-color: #4c5760;
+  background-color: #8c9094;
 
   height: 100%;
   width: 50%;
   margin: 200px auto;
   opacity: 0.8;
-
-  border-radius: 50px;
 }
 
 .createRide input {
   display: block;
   width: 100%;
-  background-color: black;
+
   opacity: 1;
+  border-radius: 4px;
 }
 
 input,
 select,
 textarea {
   color: #ffffff;
+}
+
+.createRide button {
+  margin-bottom: 50px;
+  color: black;
+}
+
+/****************************/
+/************AddPark****************/
+/****************************/
+
+.addPark {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #8c9094;
+
+  height: 100%;
+  width: 60%;
+  margin: 200px auto;
+  opacity: 0.8;
+}
+
+.addPark form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.addPark input {
+  width: 60%;
+}
+
+.addPark button {
+  margin: 0 0 50px;
+}
+
+/****************************/
+/************ViewPage****************/
+/****************************/
+
+.parkImage {
+  border-top: 2px solid gray;
+  display: flex;
+}
+
+.discription {
+  margin: 50px 0 0 50px;
+  text-align: left;
+}
+
+.discription h3 {
+  font-size: 15px;
+  font-weight: 300;
+  border-radius: 50px;
+  text-align: center;
+  width: fit-content;
+  padding: 5px 10px;
+  color: white;
+}
+
+.parkopened {
+  margin: 50px 0;
+  font-size: 12px;
+}
+
+.parkImage img {
+  text-align: left;
+  width: 60%;
+}
+
+.parkRides {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.parkRides h1 {
+  font-weight: 400;
+  text-align: left;
+}
+
+.rides {
+  display: flex;
+  justify-content: start;
+}
+
+.rides a {
+}
+
+/****************************/
+/************RideCards****************/
+/****************************/
+
+.ride-img {
+  text-align: left;
+}
+
+.ride-img img {
+  width: 300px;
+  height: 300px;
+}
+
+.ride-img h1 {
+  font-size: 15px;
+  margin: 5px 0 0 0;
+}
+
+.ride-img p {
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+.rideLink {
+  text-decoration: none;
+  color: black;
+  margin-right: 100px;
+}
+
+/****************************/
+/************ViewRide****************/
+/****************************/
+
+.viewCard {
+}
+
+.cardImg {
+  width: 100%;
+  height: 500px;
+}
+
+.viewCard img {
+  width: 100%;
+  height: 500px;
+}
+
+.cardDes {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 100px 0 0;
+}
+
+.cardDes h1 {
+  text-align: left;
+  width: 40%;
+}
+
+.cardDes div {
+  width: 50%;
+  text-align: left;
 }

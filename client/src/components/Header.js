@@ -3,10 +3,18 @@ const Header = () => {
   return (
     <header>
       <nav>
-        <Link to="/">Home</Link>
-        <Link to="/About">About Us</Link>
-        <Link to='/createride'>Add Ride</Link>
-        <Link to='/createpark'>Add Park</Link>
+        <Link className="headLink" to="/">
+          Home
+        </Link>
+        <Link className="headLink" to="/About">
+          About Us
+        </Link>
+        <Link className="headLink" to="/createride">
+          Add Ride
+        </Link>
+        <Link className="headLink" to="/createpark">
+          Add Park
+        </Link>
       </nav>
     </header>
   )
