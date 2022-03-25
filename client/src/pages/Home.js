@@ -16,7 +16,6 @@ const Home = () => {
     const getParks = async () => {
       const res = await axios.get(`http://localhost:3001/parks`)
       setParks(res.data)
-      console.log(res)
     }
     getParks()
   }, [])
@@ -34,7 +33,6 @@ const Home = () => {
 
   const handleChange = (e) => {
     setSearchQuery(e.target.value.toLowerCase())
-    console.log(e.target.value)
   }
 
   return (
