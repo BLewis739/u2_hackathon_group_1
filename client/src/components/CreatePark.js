@@ -1,4 +1,16 @@
+import { useState } from 'react'
+
 const CreatePark = (props) => {
+  const [addPark, setAddPark] = useState({
+    Park: '',
+    Location: '',
+    Category: '',
+    Description: '',
+    YearOpened: ''
+  })
+
+  console.log(addPark)
+
   return (
     <div className="addPark">
       <h1>Add Park</h1>
@@ -6,37 +18,41 @@ const CreatePark = (props) => {
         <input
           type="text"
           name="Park"
-          value={props.value}
+          value={addPark.Park}
           placeholder="Park Name"
-          onChange={props.onChange}
+          onChange={(e) => setAddPark({ ...addPark, Park: e.target.value })}
         ></input>
         <input
           type="text"
           name="Location"
-          value={props.value}
+          value={addPark.Location}
           placeholder="Location"
-          onChange={props.onChange}
+          onChange={(e) => setAddPark({ ...addPark, Location: e.target.value })}
         ></input>
         <input
           type="text"
           name="Category"
-          value={props.value}
+          value={addPark.Category}
           placeholder="Category"
-          onChange={props.onChange}
+          onChange={(e) => setAddPark({ ...addPark, Category: e.target.value })}
         ></input>
         <input
           type="text"
           name="Description"
-          value={props.value}
+          value={addPark.Description}
           placeholder="Description"
-          onChange={props.onChange}
+          onChange={(e) =>
+            setAddPark({ ...addPark, Description: e.target.value })
+          }
         ></input>
         <input
           type="text"
-          name="Year Opened"
-          value={props.value}
+          name="YearOpened"
+          value={addPark.YearOpened}
           placeholder="Year Opened"
-          onChange={props.onChange}
+          onChange={(e) =>
+            setAddPark({ ...addPark, YearOpened: e.target.value })
+          }
         ></input>
         <button className="submitButton" text="Submit">
           Add Park
