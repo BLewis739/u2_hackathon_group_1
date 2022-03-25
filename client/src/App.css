@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
+
 body {
   width: 100vw;
   background-color: white;
@@ -92,8 +94,19 @@ button:hover {
 }
 
 /****************************/
-/************display****************/
+/************mainContent****************/
 /****************************/
+
+.pageTitle {
+  background-color: rgba(255, 255, 255, 0.5);
+  width: fit-content;
+  margin: 0 auto 20px;
+  font-size: 50px;
+  font-family: 'Rye', cursive;
+  padding: 10px;
+
+  box-shadow: 0 0 20px white;
+}
 
 .content {
   width: 80%;
@@ -108,6 +121,7 @@ button:hover {
 
 .trending {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
@@ -127,6 +141,7 @@ button:hover {
 
 .parkcards {
   width: 300px;
+  margin: 0 10px 0 0;
 }
 
 .parkcards img {
@@ -179,7 +194,7 @@ button:hover {
   background-color: #8c9094;
 
   height: 100%;
-  width: 50%;
+  width: 60%;
   margin: 50px auto;
   opacity: 0.8;
 }
@@ -224,8 +239,9 @@ button:hover {
 }
 
 .addPark input {
-  width: 60%;
+  width: 250px;
   margin: 10px;
+  border-radius: 0;
 }
 
 .addPark button {
@@ -237,12 +253,16 @@ button:hover {
 }
 
 .addPark select {
-  width: 65%;
+  width: 270px;
   height: 40px;
-  border-radius: 50px;
+  /* border-radius: 50px; */
   padding: 5px 20px;
   margin: 10px;
   font-size: 20px;
+}
+
+.addPark select option {
+  width: 270px;
 }
 
 /****************************/
@@ -352,3 +372,7 @@ button:hover {
   width: 50%;
   text-align: left;
 }
+
+/****************************/
+/************About****************/
+/****************************/

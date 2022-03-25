@@ -40,6 +40,7 @@ const Home = () => {
   return (
     <div>
       <div className="search">
+        <h1 className="pageTitle">Thrills & Spills</h1>
         <Search
           onChange={handleChange}
           value={searchQuery}
