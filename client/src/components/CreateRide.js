@@ -26,7 +26,7 @@ const CreateRide = (props) => {
 
   return (
     <div className="createRide">
-      <h1>Add Your Ride</h1>
+      <h1>Add Ride</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"

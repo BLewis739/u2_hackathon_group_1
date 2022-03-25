@@ -81,6 +81,9 @@ const CreatePark = () => {
           value={addPark.category}
           onChange={(e) => setAddPark({ ...addPark, category: e.target.value })}
         >
+          <option value="" selected disabled hidden>
+            Select Category
+          </option>
           <option value="Kids">Kids</option>
           <option value="Water">Water</option>
           <option value="Amusement">Amusement</option>
