@@ -98,6 +98,34 @@ app.post('/rides', async (req, res) => {
   }
 })
 
+// Delete a ride or park
+
+app.delete('/rides/:id', async (req, res) => {
+  try {
+    const { id } = req.params
+    const deleted = await Ride.findByIdAndDelete(id)
+    if (deleted) {
+      return res.status(200).send('Ride deleted')
+    }
+    throw new Error('Ride not found')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+})
+
+app.delete('/parks/:id', async (req, res) => {
+  try {
+    const { id } = req.params
+    const deleted = await Park.findByIdAndDelete(id)
+    if (deleted) {
+      return res.status(200).send('Park deleted')
+    }
+    throw new Error('Park not found')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+})
+
 app.listen(PORT, () => {
   console.log(`Express server listening on port ${PORT}`)
 })

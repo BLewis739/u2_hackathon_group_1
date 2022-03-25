@@ -23,11 +23,13 @@ const Home = () => {
 
   const getSearchResult = async (e) => {
     e.preventDefault()
-    const res = await axios.get(`http://localhost:3001/parks/${searchQuery}`)
-    setSearchResult(res.data)
+    const res = await axios.get(`http://localhost:3001/parks/`)
+    const searchedParks = res.data.filter((item) => {
+      return item.name.includes(`${searchQuery}`)
+    })
     setSearchQuery('')
     setSearched(true)
-    console.log(res.data)
+    setSearchResult(searchedParks)
   }
 
   const handleChange = (e) => {
@@ -58,11 +60,12 @@ const Home = () => {
                 <ParksCard image={park.img} {...park} />
               </Link>
             ))}
-          {searched && (
-            <Link to={`/parks/${searchResult._id}`}>
-              <ParksCard {...searchResult} />
-            </Link>
-          )}
+          {searched &&
+            searchResult.map((item) => (
+              <Link to={`/parks/${item._id}`} key={item._id}>
+                <ParksCard image={item.img} {...item} />
+              </Link>
+            ))}
         </div>
       </div>
       {/* <div className="categories">
